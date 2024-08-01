@@ -19,15 +19,33 @@ A는 300, B는 50 쪽을 찾아야 하는 경우,
 import sys
 sys.stdin = open("input.txt", "r")
 
+def search(page, search_page):
+    start, end = 1, page
+    count = 0
+    while start <= end:
+        middle = (start+end)//2   # 중앙페이지
+        count += 1
+        if middle == search_page:
+            return count
+        elif middle > search_page:
+            end = middle
+        else:
+            start = middle
+    return count
+
+
+
 T = int(input())  # 테스트 케이스 수
 
 for case in range(1, T+1):
-    P, A, B = map(int, input().split())   # 전체 쪽수 P, 찾을 쪽 번호 Pa, Pb
-
-    start = 1
-    end = P-1
-
-    while start <= end:
-        middle = (start + end)//2   # 중간 페이지
+    P, A, B = map(int, input().split())  # 전체 쪽수 P, 찾을 쪽 번호 Pa, Pb
+    count_A = search(P, A)
+    count_B = search(P, B)
 
 
+    if count_A < count_B:
+        print(f'#{case} A')
+    elif count_A == count_B:
+        print(f'#{case} 0')
+    else:
+        print(f'#{case} B')
