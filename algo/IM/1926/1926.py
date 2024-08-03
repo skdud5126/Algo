@@ -30,5 +30,17 @@ N은 10이상 1,000이하의 정수이다. (10 ≤ N ≤ 1,000)
 
 [출력]
 1 ~ N까지의 숫자를 게임 규칙에 맞게 출력한다.
-
 '''
+
+N = int(input())   # N
+
+for i in range(1, N+1):
+    string_num = str(i)   # string이로 변환
+    count = 0
+    for j in string_num:   # 예를 들어 13을 1 3 으로 하나씩 가져옴
+        if j in ['3','6','9']:
+            count+=1
+    if count == 0:  # count가 없다는건 숫자에 3,6,9가 없음
+        print(i, end = ' ')
+    else:
+        print('-'*count, end = ' ')

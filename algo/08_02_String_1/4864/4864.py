@@ -32,8 +32,16 @@ ZZZZAZBCZZZZZ
 
 '''
 
-# import sys
-# sys.stdin = open('input.txt', 'r')
+import sys
+sys.stdin = open('input.txt', 'r')
+
+def find_word(a,b):
+
+    for i in range(len(b)-len(a)+1):   # 10개 4개
+        if b[i:i+len(a)] == a:
+            return 1
+    return 0
+
 
 T = int(input())   # 테스트 케이스 개수 T
 
@@ -43,6 +51,5 @@ for case in range(1, T+1):
     str1 = input()
     str2 = input()
 
-    for i in range(len(str2)-len(str1)-1):   # 10개 4개
-        if str2[i:len(str1)+1] == str1:
 
+    print(f'#{case} {find_word(str1,str2)}')
