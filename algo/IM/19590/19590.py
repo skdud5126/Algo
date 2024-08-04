@@ -34,3 +34,29 @@ NXN 사각형의 전투장에는 각 칸마다 몇마리의 몬스터가 있는�
 마법사가 잡을 수 있는 몬스터의 최대 수를 출력하시오.
 
 '''
+import sys
+sys.stdin = open('input.txt', 'r')
+
+
+N = int(input())  # 가로세로크기 N
+arr = [list(map(int,input().split())) for _ in range(N)]
+K = int(input())  # 마법의 시전범위 K
+
+dxy = [[1,1], [1,-1],[-1,-1], [-1,1]]
+max_hap=0
+
+for i in range(N):
+    for j in range(N):
+        hap = 0
+        for dx,dy in dxy:
+            for k in range(1,K+1):  # K만큼 순회하면서 값 더해줌
+                nx = i + dx*k
+                ny = j + dy*k
+
+                if nx < 0 or nx >= N or ny <0 or ny >= N:
+                    continue
+                else:
+                    hap += arr[nx][ny]
+        if max_hap < hap:
+            max_hap = hap
+print(max_hap)
