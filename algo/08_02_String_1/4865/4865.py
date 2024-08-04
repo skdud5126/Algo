@@ -27,3 +27,16 @@ sys.stdin = open('input.txt', 'r')
 
 T = int(input())  # 테스트 케이스 수
 
+for case in range(1, T+1):
+    str1 = input()
+    str2 = input()
+    max_count = 0
+    for i in str1:
+        count = 0
+        for j in str2:
+
+            if i == j:
+                count+=1
+        if max_count < count:
+            max_count = count
+    print(f'#{case} {max_count}')
