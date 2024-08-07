@@ -18,20 +18,33 @@
 
 '''
 
-# import sys
-# sys.stdin = open('input.txt', 'r')
+import sys
+sys.stdin = open('input.txt', 'r')
+
 
 def DFS(s, V):
-    stack = []
+    stack = []  # 방문한 정점 push할 stack
+    res = []  # 탐색 경로 결과
     visited = [0]*(V+1)  # 방문했는지 확인 용 
-    visited[s] = 1
-    
+    visited[s] = 1   # 방문한 곳 1로 표시
     v = s   # 확인용
-    
+
+    res.append(v)  # 경로 탐색 결과에 현재 정점 추가
     while True:
-        for x in range(E):
+        for x in adjL[v]:     # 현재 정점과 연결된 인접정점 접근
             if visited[x] == 0:    # 방문한 기록이 없다면 stack에 추가
-                stack.append(x)
+                stack.append(v)  # 현재 정점 stack에 추가
+                v = x    # 현재 정점에서 인접정점으로 방문하여 재할당
+                res.append(v)
+                visited[x] = 1  # 현재 방문한 곳 표시
+                break   # 가까운 for문 탈출
+        else:    # for가 정상적으로 완료했을때 실행하는 구문
+            if stack:   # 인접정점이 없다는 것 pop해서 되돌아감
+                v = stack.pop()
+            else:  # stack 비었으면 모두 방문했기에 break while문 탈출
+                break
+    return res
+
 
 for case in range(1):
     V, E = map(int,input().split())   # 정점의 개수 V 간선의 개수 E
@@ -43,5 +56,6 @@ for case in range(1):
         adjL[v1].append(v2)   # 각 정점과 연결된 정점들 추가
         adjL[v2].append(v1)   # 무방향이기때문에 서로서로 연결된 정점들 추가해줌
     # adjL = [[], [2, 3], [1, 4, 5], [1, 7], [2, 6], [2, 6], [4, 5, 7], [6, 3]]
-    
+    print(f'#{case+1} {"-".join(map(str,DFS(1,V)))}')
+
     
