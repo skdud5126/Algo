@@ -39,16 +39,18 @@ for case in range(1, T+1):
     arr = [[0] * N for _ in range(N)]   # NXN 빈 배열 생성
 
 
-    for x in range(N):
-        for y in range(N):
-            for num in range(N):
-                for dx,dy in dxy:
-                    nx = x + dx
-                    ny = y + dy
 
-                    if nx < 0 or nx >= N or ny < 0 or ny >= N:
-                        continue
 
-                    arr[nx][dy] = num+1
-                    N += N
-                print(arr)
+    # for x in range(N):
+    #     for y in range(N):
+    #         for num in range(N):
+    #             for dx,dy in dxy:
+    #                 nx = x + dx
+    #                 ny = y + dy
+    #
+    #                 if nx < 0 or nx >= N or ny < 0 or ny >= N:
+    #                     continue
+    #
+    #                 arr[nx][dy] = num+1
+    #                 N += N
+    #             print(arr)
