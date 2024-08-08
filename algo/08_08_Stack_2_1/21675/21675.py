@@ -47,33 +47,33 @@ Forth 코드의 연산 결과를 출력하는 프로그램을 만드시오.
 T = int(input())  # 테스트 케이스 T
 
 for case in range(1, T+1):
-    expression = list(map(str,input().split()))   # 표현식
+    expr = list(input().split())   # 표현식
+    stack = []    # 피연산자들 담을 빈 스택 리스트
+    val = []   # 팝해서 넣을 값들
 
-    stack = []
-    res = 0
-    for char in expression:
+    for char in expr:
         if char.isdigit():   # 숫자형일때
             stack.append(char)   # 스택에 추가해줌
             continue
-        if not stack:  # 숫자형이 아닐 때 스택에 없고 연산자만 만나면 error
-            print('1')
-            break
-        elif char != '.':
-            val1 = 0
-            for _ in range(2):
-                if char == '+':
-                    val1 += int(stack.pop())
-                elif char == '-':
-                    val1 -= int(stack.pop())
-                elif char == '*':
-                    val1 = 1
-                    val1 *= int(stack.pop())
-                elif val1 == '/':
-                    val1 = 1
-                    val1 /= int(stack.pop())
-            stack.append(val1)
-            print(val1, stack)
-            # else:
-            #     if char == '.':
-            #         res = stack.pop()
-        # print(stack)
+
+        if char != '.':  # .을 제외하고 연산자 만났을 때 계산 수행한다.
+            if not stack or len(stack) < 2:  # 숫자형이 아닐 때 /스택에 없는 상태에서 연산자 만나면 error/ 스택에 길이가 1개인데 연산자 만나면 연산 불가능
+                print(f'#{case} error')
+                break
+            for _ in range(2):  # stack에 있던 값 꺼내오기 두 번 반복
+                val.append(int(stack.pop()))  # 숫자로 있는거 int로 받아옴
+            res = 0   # 연산작업 값 담아 줄 변수 초기값 설정
+            if char == '+':
+                res = val[-1] + val[-2]
+            if char == '-':
+                res = val[-1] - val[-2]
+            if char == '*':
+                res = val[-1] * val[-2]
+            if char == '/':
+                res = val[-1] // val[-2]
+            stack.append(res)    # 연산 결과값 다시 stack에 추가
+        else:
+            if len(stack) == 1:  # '.' 만났을때 스택안에 있는게 정답임 하나만 존재해야하므로 예외처리 구문
+                print(f'#{case} {stack.pop()}')
+            else:
+                print(f'#{case} error')
