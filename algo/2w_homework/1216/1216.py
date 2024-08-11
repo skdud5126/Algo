@@ -36,17 +36,8 @@ ABA도 회문이며, ABBA도 회문이다. A또한 길이 1짜리 회문이다.
 
 box_size = 100
 
-def find_palidrome(arr,box_size,N):
-
-    result = False
-
-    while result:
-        for i in range(box_size,-1,-1):
-            if arr[i-1] == arr[N-i]:
-                result = True
-                break
-
-
+def is_palindrome(string):    # 회문인지 검사하는 함수
+    return string == string[::-1]
 
 
 
