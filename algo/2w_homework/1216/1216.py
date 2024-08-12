@@ -34,15 +34,31 @@ ABA도 회문이며, ABBA도 회문이다. A또한 길이 1짜리 회문이다.
 
 '''
 
-box_size = 100
-
 def is_palindrome(string):    # 회문인지 검사하는 함수
     return string == string[::-1]
 
+def find_longest_palindrome(pal_arr):  # 가장 긴 회문을 찾는 함수
 
+    for i in range(N):   # 0부터 100까지 값을 가지고, 가로 검사에서는 행, 세로 검사에서는 열
+        for length in range(N, 1, -1):
+            for start in range(N-length+1):
+                # 가로 방향 검사
+                if is_palindrome(pal_arr[i][start:start+length]):
+                    return length
 
+                column = []
+                for j in range(start, start + length):
+                    column.append(pal_arr[j][i])
+
+                if is_palindrome(column):
+                    return length
+
+    return 1
 
 for _ in range(1, 11):
     case = int(input())
-    pal_arr = [ input() for _ in range(box_size)]
+    N = 100
+    pal_arr = [input() for _ in range(N)]
 
+    result = find_longest_palindrome(pal_arr)
+    print(f'#{case} {result}')
