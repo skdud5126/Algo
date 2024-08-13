@@ -81,7 +81,7 @@ start_val = 2    # 출발
 arrive_val = 3   # 도착
 
 def dfs(x,y,visited):
-    global result
+    global result  # 전역변수 수정 위함
 
     visited[x][y] = 1  # 방문한 곳 1로 표시
     for dx,dy in dxy:  #  도착지점 기준으로 좌표 이동
@@ -89,7 +89,7 @@ def dfs(x,y,visited):
         ny = y + dy
         if nx < 0 or nx >= N or ny < 0 or ny >= N:  # 범위 벗어나는 것 제외
             continue
-        elif maze_arr[nx][ny] == 2:   # 좌표 이동 후 마지막 기점에서 상하좌우 탐색했을 때 2 발견하면 함수 종료
+        if maze_arr[nx][ny] == 2:   # 좌표 이동 후 마지막 기점에서 상하좌우 탐색했을 때 2 발견하면 함수 종료
             result = 1
             return
         elif maze_arr[nx][ny] == 0 and visited[nx][ny] == 0:   # 통로(0) 존재하고 방문한적 없는곳 탐색
