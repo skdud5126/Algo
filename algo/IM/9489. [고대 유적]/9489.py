@@ -45,7 +45,7 @@ for case in range(1, T+1):
                 continue
             for dx, dy in dxy:
                 cnt = 1  # 유물이 있다는거
-                for k in range(1, max(N,M)):
+                for k in range(1, max(N,M)):   # N,M이 뭐가 큰지 모르기때문에 둘 중 max값 가져옴
                     nx, ny = row + dx*k , col + dy*k
                     if nx < 0  or nx >= N or ny < 0 or ny >= M or arr[nx][ny] == 0:  # 범위 벗어나거나 유물이 없거나
                         break
