@@ -1,4 +1,4 @@
-# 4875
+# 4875 [미로1]
 
 def dfs(miro, x,y):
     global res
