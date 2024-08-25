@@ -17,7 +17,7 @@ for case in range(1, T+1):
     for A,B in room:
         start = (min(A,B)+1)//2  # 방번호가 홀수 짝수여도 같은 인덱스에 집어넣기 위함
         end = (max(A,B)+1) // 2
-        for i in range(start, end+1):
+        for i in range(start, end+1):   # start부터 end까지 모두 다녀갔다 가정
             r[i] += 1
 
     print(f'#{case} {max(r)}')

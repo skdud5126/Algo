@@ -50,7 +50,7 @@ def plus_kill(mosq):   # + 모양 kill
                     kill += mosq[nx][ny]
             kill += mosq[i][j]
 
-            if max_kill < kill:
+            if max_kill < kill:  # max값 갱신
                 max_kill = kill
     return max_kill
 

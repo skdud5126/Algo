@@ -58,7 +58,7 @@ for case in range(1, T+1):
     res = set()   # 중복 없애기 위함
     num = 0  # 양 숫자 센 배수 값 넣어주기 위함
 
-    while len(res) <= 9:
+    while len(res) <= 9:  # 0~9까지 들어가면 while문 탈출
         num += N
 
         for n in str(num):
