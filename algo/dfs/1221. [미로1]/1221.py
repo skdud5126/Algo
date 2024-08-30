@@ -9,7 +9,7 @@ def dfs(miro, x,y):
         nx, ny = x+dx, y+dy
         if miro[nx][ny] == 3:
             res = 1
-            return
+            return res
         if 0<=nx<box_size and 0<=ny<box_size and miro[nx][ny] == 0 and visited[nx][ny] == 0:
             dfs(miro, nx,ny)
     return res
