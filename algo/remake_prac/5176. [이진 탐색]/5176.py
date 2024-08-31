@@ -45,3 +45,38 @@ N = 9
 
 
 '''
+
+
+
+def make_tree(node):   # 중위 탐색
+    global idx
+    if node<=8:
+        make_tree(node*2)
+        tree[node]=decimal_num[idx]
+        idx+=1
+        make_tree(node*2+1)
+
+hex_num = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
+
+T = int(input())
+
+for case in range(1, T+1):
+    word = input()  # 90A141E28323C4650
+    decimal_num =[]  # 10진수 담아 놓는 빈리스트
+    tree = [0]*9  # 트리
+    idx = 0
+
+    for w in range(1,len(word),2):  # 16진수 10진수로 변경
+        decimal_num.append((16**1)*(hex_num.index(word[w])) + (16**0)*(hex_num.index(word[w+1])))
+        # [10, 20, 30, 40, 50, 60, 70, 80]
+
+    for i in range(len(decimal_num)):   # salt값 각각 빼서 재할당
+        decimal_num[i] -= int(word[0])*(i+1)
+    # [1, 2, 3, 4, 5, 6, 7, 8]
+
+    for j in range(len(decimal_num)):   # 2자리수 이상일 때 1자리로 출력하기 위함
+        if decimal_num[j] >= 10:
+            decimal_num[j]%=10
+
+    make_tree(1)
+    print(f'#{case} {"".join(map(str,tree[1:]))}')
