@@ -5,8 +5,6 @@ N개의 정수가 들어있는 배열에서 이웃한 M개의 합을 계산하�
 
 제시된 길이와 같은 열방향 구간의 합이 가장 큰 경우와 작은 경우의 차이를 출력하는 프로그램을 작성하시오.
 
-
-
 ***
 [예시]
 
@@ -60,5 +58,48 @@ N = 5, M = 2
 
 각 줄마다 "#T" (T는 테스트 케이스 번호)를 출력한 뒤, 답을 출력한다.
 
+1
+5 2
+5 3 6 1
+1 2
+1 2 3
+1
+9 0 11
 
 '''
+
+T = int(input())
+
+for case in range(1,T+1):
+    N, M = map(int,input().split())  # N : 배열 크기 / M : 이웃한 M개의 합
+    arr = [list(map(int,input().split())) for _ in range(N)]
+    length = 0  # 행의 최대 길이 구하기 위함
+    ans = []  # 가능한 구간합 나타내기 위한 빈 리스트
+
+    for li in arr:
+        length = max(length, len(li))
+
+    for i in arr: # 배열 돌면서 빈 곳 -1로 채워줌 0도 들어갈 수 있기 때문에 -1로 채움
+        if len(i) < length:
+            for _ in range(length-len(i)):
+                i.append(-1)
+
+    for col in range(length):  # 열 기준 -1아닌 값 res로 가져옴
+        res = []  # [5, 1, 1, 1, 9] res
+        for row in range(N):
+            if arr[row][col]!= -1:
+                res.append(arr[row][col])
+
+        if len(res) < M:   # res 길이가 M보다 작으면 할 필요 X
+            continue
+
+        for i in range(len(res)-M+1):  # 구간합 구함
+            hap = 0
+            for m in range(M):
+                hap += res[i+m]
+            ans.append(hap)   # [6, 8, 10, 20, 5, 9, 11, 9, 23]  가능한 구간합 나타냄
+
+    if not ans:# 구간합이 존재하지않으면 -1 출력
+        print(f'#{case} -1')
+    else:
+        print(f'#{case} {max(ans)-min(ans)}')
