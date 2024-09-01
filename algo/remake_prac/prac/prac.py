@@ -46,7 +46,7 @@ for case in range(1, T+1):
     for i in range(N):
         idx = 1
         length = 1  # 최소 길이 시작
-        while  i-idx >= 0 and i+idx < N and arr[i-idx] == arr[i+idx]:
+        while  i-idx >= 0 and i+idx < N and arr[i-idx] == arr[i+idx]:  # 인덱스 범위 벗어나지 않고 데칼코마니이면
             length +=2  # 데칼코마니 길이 2
             idx+=1
 
