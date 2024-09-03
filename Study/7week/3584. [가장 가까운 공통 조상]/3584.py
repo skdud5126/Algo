@@ -31,7 +31,7 @@ for case in range(1, T+1):
             print(root)
             break
 
----
+
 # 백준 제출 코드(런타임 에러 X)
 
 def dfs(node, root):
