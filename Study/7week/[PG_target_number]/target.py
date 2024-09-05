@@ -20,7 +20,7 @@ def solution(numbers, target):
 
     return answer
 
-print(solution([4,1,2,1], 4))
+# print(solution([4,1,2,1], 4))
 
 
 
