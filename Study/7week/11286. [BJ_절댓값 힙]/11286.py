@@ -30,3 +30,15 @@ x가 0이라면 배열에서 절댓값이 가장 작은 값을 출력하고 그 
 만약 배열이 비어 있는 경우인데 절댓값이 가장 작은 값을 출력하라고 한 경우에는 0을 출력하면 된다.
 
 '''
+from heapq import heappush, heappop
+
+N = int(input())
+arr = [int(input()) for _ in range(N)]
+cnt = arr.count(0)  # 10
+
+h = []
+
+for num in arr:
+    heappush(h, num)
+    print(h)
+
