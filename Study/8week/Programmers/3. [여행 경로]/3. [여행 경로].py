@@ -63,38 +63,87 @@ tickets 의 각 행 [a, b]는 a 공항에서 b 공항으로 가는 항공권이 
 # print(solution([["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]))
 
 from collections import deque
-
+'''
 def solution(tickets):
-    visited = set()  # {'IAD', 'JFK', 'ICN', 'HND'}
-    for li in tickets:
-        for ele in li:
-            visited.add(ele)
-
     ans = []
     start = "ICN"
-    road_dict = {}  # {'ICN': ['JFK'], 'HND': ['IAD'], 'JFK': ['HND']}  # {'ICN': ['SFO', 'ATL'], 'SFO': ['ATL'], 'ATL': ['ICN', 'SFO']}
+    road_dict = {}  # {'ICN': ['JFK'], 'HND': ['IAD'], 'JFK': ['HND']}
+    visited = {}  # {'ICN': [0], 'HND': [0], 'JFK': [0]}
 
     for s, v in tickets:
         if s in road_dict:
             road_dict[s].append(v)
+            visited[s].append(0)
         else:
             road_dict[s] = [v]
+            visited[s] = [0]
 
     for key in road_dict.keys():  # 문제에서 만일 가능한 경로가 2개 이상일 경우 알파벳 순서가 앞서는 경로 return 위해 sort작업처리
         road_dict[key].sort()
 
+    # {'ICN': ['SFO', 'ATL'], 'SFO': ['ATL'], 'ATL': ['ICN', 'SFO']}
 
-    def dfs(start, ans):
+    ans.append(start)
+    def dfs(start):
 
         for next_node in road_dict[start]:
-            ans.append(next_node)
+            if next_node in road_dict.keys() and visited[next_node][road_dict[next_node].index(road_dict[next_node])] == 0:
+                visited[next_node][road_dict[next_node].index(road_dict[next_node])] == 1
+                dfs(next_node)
 
 
+
+    return ans
+
+
+'''
+
+
+
+
+
+def solution(tickets):
+    def dfs(start, ans):
+
+        for i in range(len(road_dict[start])):
+            if road_dict[start][i] not in road_dict.keys():
+                ans.append(road_dict[start][i])
+                return
+
+            if visited[start][i]:
+                continue
+            visited[start][i] = 1
+            ans.append(road_dict[start][i])
+            dfs(road_dict[start][i], ans)
+
+
+    ans = []
+    start = "ICN"
+    road_dict = {}  # {'ICN': ['JFK'], 'HND': ['IAD'], 'JFK': ['HND']}
+    visited = {}
+
+    for s, v in tickets:
+        if s in road_dict:
+            road_dict[s].append(v)
+            visited[s].append(0)
+        else:
+            road_dict[s] = [v]
+            visited[s] = [0]
+
+    for key in road_dict.keys():  # 문제에서 만일 가능한 경로가 2개 이상일 경우 알파벳 순서가 앞서는 경로 return 위해 sort작업처리
+        road_dict[key].sort()
+    # {'ICN': ['ATL', 'SFO'], 'SFO': ['ATL'], 'ATL': ['ICN', 'SFO']}
+
+    ans.append(start)  # 인천 출발
 
     dfs(start, ans)
 
     return ans
 
-# print(solution([["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]))
 
-print(solution([["ICN", "JFK"], ["HND", "IAD"], ["JFK", "HND"]]))
+
+#print(solution([["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]))
+
+#print(solution([["ICN", "JFK"], ["HND", "IAD"], ["JFK", "HND"]]))
+
+print(solution([["ICN", "D"], ["D", "ICN"], ["ICN", "B"]]))
