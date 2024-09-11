@@ -26,15 +26,39 @@ begin과 target은 같지 않습니다.
 
 '''
 
-# def solution(begin, target, words):
-#     answer = 0
-#     if target not in words:   # target이 words 목록에 없으면 함수 실행 필요 없음
-#         answer = 0
-#         return answer
-#
-#
-#
-#     return answer
+from collections import deque
+
+def solution(begin, target, words):
+    visited = [0] * (len(words))  # 단어 선택 표시용
+
+    def bfs(begin,count):
+        que = deque([[begin,count]])
+
+        while que:   # 큐가 빌때까지
+            word, cnt = que.popleft()
+
+            if word == target:   # 단어가 최종 target 찾으면 리턴
+                return cnt
+
+            for i in range(len(words)):
+                # 단어 비교했을 때 다른 문자 비교값 담을 변수
+                diff_cnt = 0
+                if not visited[i]:   # 단어 사용 안했으면
+                    # 원래 단어랑 선택된 단어랑 비교했을 때 1개 차이나면 교환 가능한 단어
+                    for j in range(len(word)):
+                        if word[j] != words[i][j]:   # 각 위치의 단어와 비교했을 때 같지 않다면
+                            diff_cnt += 1  # 카운트
+                    # 다 비교했을 때 diff_cnt가 1이면 교환 가능한 단어이니까!
+                    if diff_cnt == 1:
+                        visited[i] = 1  # 단어 사용했다고 표시
+                        que.append([words[i],cnt+1])  # enq
+
+    if target not in words:   # target이 words 목록에 없으면 함수 실행 필요 없음
+        return 0
+
+    answer = bfs(begin,0)
+
+    return answer
 
 # 일단 words에 target이 없으면 돌릴 필요없음 retrun
 # 만약 words에 target이 있으면 포문 돌려서 한개씩 차이나는 단어를 찾고 begin을 새로 갱신 cnt+=1 그렇게 갱신하다가 target이랑 같아지면 return cnt
@@ -44,17 +68,5 @@ begin과 target은 같지 않습니다.
 begin = 'hit'
 target= 'cog'
 words = ['hot','dot','dog','lot','log','cog']
-tree = []
-cnt = 0
+print(solution(begin,target,words))
 
-for w in words:
-    count = 0
-    for i in range(len(begin)):
-        if begin[i] != w[i]:
-            count+=1
-            cnt+=1
-            if count == 1:
-                tree.append([w,cnt])
-                break
-
-print(tree)
