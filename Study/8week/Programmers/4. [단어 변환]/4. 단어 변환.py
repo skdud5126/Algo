@@ -29,4 +29,6 @@ def solution(begin, target, words):
 
 # 일단 words에 target이 없으면 돌릴 필요없음 retrun
 # 만약 words에 target이 있으면 포문 돌려서 한개씩 차이나는 단어를 찾고 begin을 새로 갱신 cnt+=1 그렇게 갱신하다가 target이랑 같아지면 return cnt
+# bfs로 접근해야겠다
+
 
