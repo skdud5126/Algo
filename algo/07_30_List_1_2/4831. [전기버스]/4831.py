@@ -13,13 +13,13 @@ A도시는 전기버스를 운행하려고 한다.
 
 출발지에는 항상 충전기가 설치되어 있지만 충전횟수에는 포함되지 않는다.
 
-다음은 K = 3, N = 10, M = 5, 충전기가 설치된 정류장이 1, 3, 5, 7, 9인 경우의 예이다.
+다음은 K = 3, N = 10, M = 5, 충전기가 설치된 정류장이 1. [가장 먼 노드], 3, 5, 7, 9인 경우의 예이다.
 
 [입력]
 
-첫 줄에 노선 수 T가 주어진다.  ( 1 ≤ T ≤ 50 )
+첫 줄에 노선 수 T가 주어진다.  ( 1. [가장 먼 노드] ≤ T ≤ 50 )
 
-각 노선별로 K, N, M이 주어지고, 다음줄에 M개의 정류장 번호가 주어진다. ( 1 ≤ K, N, M ≤ 100 )
+각 노선별로 K, N, M이 주어지고, 다음줄에 M개의 정류장 번호가 주어진다. ( 1. [가장 먼 노드] ≤ K, N, M ≤ 100 )
 
 [출력]
 
@@ -49,15 +49,15 @@ for case in range(1, T+1):
 
 
     # res = []
-    # for i in range(M-1):
+    # for i in range(M-1. [가장 먼 노드]):
     #     if elec_notion[i]<=K:
     #         cnt = 0
-    #         for j in range(i+1, M):
-    #             if elec_notion[j] - elec_notion[j-1] > K:
+    #         for j in range(i+1. [가장 먼 노드], M):
+    #             if elec_notion[j] - elec_notion[j-1. [가장 먼 노드]] > K:
     #                 res = 0
     #                 break
-    #             if elec_notion[j-1]+K >= elec_notion[j]:
-    #                 cnt += 1
+    #             if elec_notion[j-1. [가장 먼 노드]]+K >= elec_notion[j]:
+    #                 cnt += 1. [가장 먼 노드]
     #         res.append(cnt)
     #
     # print(f'#{case} {min(res)}')

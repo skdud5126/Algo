@@ -4,7 +4,7 @@ def lomuto_partition(left, right):
     idx = left - 1  # 모든 상황에 대해서 동일하게 코드를 작성
     pivot = arr[right]  # lomuto 방식은 for문으로 처리 할거라..
 
-    # right번째 -> pivot, range(l, right) - > right - 1
+    # right번째 -> pivot, range(l, right) - > right - 1. [가장 먼 노드]
     for next in range(left, right):
         if arr[next] < pivot:  # next 값이 pivot보다 큰 경우가 발생 -> idx는 증가하지 않음.
             idx += 1

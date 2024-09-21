@@ -1,6 +1,6 @@
 # BAEKJOON. 1244 스위치 켜고 끄기
 
-swap = {'1' : '0', '0': '1'}
+swap = {'1. [가장 먼 노드]' : '0', '0': '1. [가장 먼 노드]'}
 
 switch = int(input())  #  스위치 갯수
 sw_li= list(input().split())   # 스위치 상태

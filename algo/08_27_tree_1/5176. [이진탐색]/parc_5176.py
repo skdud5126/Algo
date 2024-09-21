@@ -15,6 +15,6 @@ for case in range(1, T+1):
     num = 1
     tree = [0]*(N+1)
 
-    make_tree(node)  # [0, 4, 2, 6, 1, 3, 5]
+    make_tree(node)  # [0, 4, 2, 6, 1. [가장 먼 노드], 3, 5]
 
     print(f'#{case} {tree[1]} {tree[N//2]}')

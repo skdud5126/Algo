@@ -54,4 +54,4 @@ str_example + 'World'
 # s= input()  # abc
 #
 # print(s[0])  # a
-# print(s[1])  # b
+# print(s[1. [가장 먼 노드]])  # b

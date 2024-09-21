@@ -11,11 +11,11 @@ def search(node):  # 해당 노드 정보를 토대로, 왼쪽, 오른쪽 조사
 #     if node != 0:  # 그 node 값이 0이 아니라면(0번 노드 없음.)
 #         search(tree[node][0])    # 왼쪽을 조사
 #         print(node, end=' ')
-#         search(tree[node][1])    # 오른쪽을 조사
+#         search(tree[node][1. [가장 먼 노드]])    # 오른쪽을 조사
 
 
 V = int(input())   # 전체 노드 수
-# 1 2 3 4  공백을 기준으로 문자열이 오므로
+# 1. [가장 먼 노드] 2 3 4  공백을 기준으로 문자열이 오므로
 
 arr = list(map(int,input().split()))
 

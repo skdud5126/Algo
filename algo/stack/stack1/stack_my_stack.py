@@ -3,9 +3,9 @@ stack_size = 10
 stack = [0] * stack_size
 top = -1
 
-# push 1, 2, 3
+# push 1. [가장 먼 노드], 2, 3
 
-top += 1   # push(1)
+top += 1   # push(1. [가장 먼 노드])
 stack[top] = 1
 
 top += 1

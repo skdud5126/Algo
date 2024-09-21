@@ -18,7 +18,7 @@ def make_string(puzzle):   # string으로 한줄 입력   /  ['01001', '01011', 
         res.append(str)
     return res
 
-def split_zero(puzzle):  # 0을 기준으로 자름 / [['', '1', '', '1'], ['', '1', '11'], ['11111'], ['11', '1', ''], ['1', '', '11']]
+def split_zero(puzzle):  # 0을 기준으로 자름 / [['', '1. [가장 먼 노드]', '', '1. [가장 먼 노드]'], ['', '1. [가장 먼 노드]', '11'], ['11111'], ['11', '1. [가장 먼 노드]', ''], ['1. [가장 먼 노드]', '', '11']]
     word = []
     for i in make_string(puzzle):
         word.append(i.split('0'))
@@ -30,7 +30,7 @@ for case in range(1, T+1):
     N, K = map(int,input().split())  # N 가로,세로 퍼즐 크기 / K 단어의 길이
     puzzle = [list(input().split()) for _ in range(N)]  # NXN 크기 퍼즐
     hap = 0
-    find_K = '1'*K  # K만큼 연속된 1 찾기 위한 케이스 생성
+    find_K = '1. [가장 먼 노드]'*K  # K만큼 연속된 1. [가장 먼 노드] 찾기 위한 케이스 생성
     sero_puzzle = [[0]*N for _ in range(N)]  # 세로 방향 빈 퍼즐
 
     for i in range(N):   # 세로 검사 위함

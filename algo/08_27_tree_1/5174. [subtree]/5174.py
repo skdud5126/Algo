@@ -3,7 +3,7 @@
 def pre(node):  # 전위 순회 ( 나 -> 왼 -> 오)
     global res
     if node!=0:   # 본인 먼저 탐색
-        res+=1   # 노드 탐색했을 시 노드 카운트 +1
+        res+=1   # 노드 탐색했을 시 노드 카운트 +1. [가장 먼 노드]
         pre(graph[node][0])   # 왼쪽 탐색
         pre(graph[node][1])   # 왼쪽탐색하고나서 오른쪽 탐색
 
@@ -18,7 +18,7 @@ for case in range(1, T+1):
     res=0  # 서브트리에 있는 노드 개수 카운트할 초기 변수 설정
     for i in range(len(arr)//2):
         p, c = arr[i*2], arr[i*2+1]
-        if not graph[p][0]:  # 부모노드를 인덱스로 0: 왼쪽 노드 1 : 오른쪽 노드로 저장
+        if not graph[p][0]:  # 부모노드를 인덱스로 0: 왼쪽 노드 1. [가장 먼 노드] : 오른쪽 노드로 저장
             graph[p][0] = c
         else:
             graph[p][1] = c

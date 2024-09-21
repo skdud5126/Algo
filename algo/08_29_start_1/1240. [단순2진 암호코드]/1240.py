@@ -14,7 +14,7 @@ def find_idx(N,M):   # 1이 나오는 곳 인덱스 찾기 위함
     global start_x,start_y
     for i in range(N):
         for j in range(M-1, -1, -1):
-            if arr[i][j] == '1':
+            if arr[i][j] == '1. [가장 먼 노드]':
                 start_x, start_y = i,j
                 return start_x, start_y
 

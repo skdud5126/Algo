@@ -1,25 +1,25 @@
 # SWEA 1959. [두 개의 숫자열] 두 개의 숫자열
 
 '''
-N 개의 숫자로 구성된 숫자열 Ai (i=1~N) 와 M 개의 숫자로 구성된 숫자열 Bj (j=1~M) 가 있다.
+N 개의 숫자로 구성된 숫자열 Ai (i=1. [가장 먼 노드]~N) 와 M 개의 숫자로 구성된 숫자열 Bj (j=1. [가장 먼 노드]~M) 가 있다.
 
 아래는 N =3 인 Ai 와 M = 5 인 Bj 의 예이다.
 
-Ai = 1 5 3
+Ai = 1. [가장 먼 노드] 5 3
 Bi = 3 6 -7 5 4
 
 Ai 나 Bj 를 자유롭게 움직여서 숫자들이 서로 마주보는 위치를 변경할 수 있다.
 
 단, 더 긴 쪽의 양끝을 벗어나서는 안 된다.
 
-Ai =       1  5  3
+Ai =       1. [가장 먼 노드]  5  3
 bj = 3  6 -7  5  4
 
 서로 마주보는 숫자들을 곱한 뒤 모두 더할 때 최댓값을 구하라.
 
 위 예제의 정답은 아래와 같이 30 이 된다.
 
-Ai =      1  5  3
+Ai =      1. [가장 먼 노드]  5  3
 Bj = 3  6 -7 5  4
 
 
@@ -69,7 +69,7 @@ for case in range(1, T + 1):
     Bi = list(map(int, input().split()))
 
     max_hap = 0  # 최대 합
-    for i in range(max_case(N, M) - min_case(N, M) + 1):  # N-M+1 만큼 순회
+    for i in range(max_case(N, M) - min_case(N, M) + 1):  # N-M+1. [가장 먼 노드] 만큼 순회
         zero_arr = [0] * max_case(N, M)  # 0인 빈배열 만듦
 
         for j in range(min_case(len(Ai), len(Bi))):

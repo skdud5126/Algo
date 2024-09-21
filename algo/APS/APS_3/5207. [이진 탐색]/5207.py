@@ -7,9 +7,9 @@
     #     if key == A_li[mid]:
     #         return key
     #     elif A_li[mid] < key:
-    #         return aa(A_li, mid+1, end, key)
+    #         return aa(A_li, mid+1. [가장 먼 노드], end, key)
     #     else:
-    #         return aa(A_li, start, mid-1, key)
+    #         return aa(A_li, start, mid-1. [가장 먼 노드], key)
 
 def aa(A_li, start, end, key):
     global ans

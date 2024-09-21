@@ -14,7 +14,7 @@ for case in range(1, T+1):
     res = []
 
     for idx, value in enumerate(score, start = 1):  # 인덱스 번호(1부터 시작 지정)와 값을 가져옴
-        res.append([value[0]*0.35 + value[1]*0.45 + value[2]*0.2, idx])   #  [[74.6, 1], [92.55000000000001, 2], [88.8, 3], [99.45, 4], [72.35, 5], [85.85000000000001, 6], [96.25, 7], [68.95, 8], [85.5, 9], [85.75, 10]]
+        res.append([value[0]*0.35 + value[1]*0.45 + value[2]*0.2, idx])   #  [[74.6, 1. [가장 먼 노드]], [92.55000000000001, 2], [88.8, 3], [99.45, 4], [72.35, 5], [85.85000000000001, 6], [96.25, 7], [68.95, 8], [85.5, 9], [85.75, 10]]
 
     res.sort(reverse= True)  # 성적 순으로 정렬(idx번호기준 아님)
 
@@ -22,7 +22,7 @@ for case in range(1, T+1):
         res[i].append(grades[i//same_score])
 
     for student_grade in res:
-        if student_grade[-2] == K:   # 처음 학생들의 위치 [74,6, 1, 'C0']
+        if student_grade[-2] == K:   # 처음 학생들의 위치 [74,6, 1. [가장 먼 노드], 'C0']
             print(f'#{case} {student_grade[-1]}')   # 요소 마지막이 학점 표시
             break
 

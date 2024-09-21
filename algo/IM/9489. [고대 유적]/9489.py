@@ -7,7 +7,7 @@
 구조물은 폭 1m, 길이 2m 이상의 직선 형태로 서로 평행 또는 직각으로만 자리하고 있으며,
 1mx1m의 해상도의 사진데이터에 구조물이 있는 자리는 1로 나타난다.
 
-사진의 해상도는 NxM이며, 구조물이 있는 곳은 1, 빈 땅은 0으로 표시된다.
+사진의 해상도는 NxM이며, 구조물이 있는 곳은 1. [가장 먼 노드], 빈 땅은 0으로 표시된다.
 
 위 그림의 경우 가장 긴 구조물은 노란색으로 표시된 영역이며, 길이는 6이다.
 
@@ -64,7 +64,7 @@ for case in range(1, T+1):
     #     cnt = 0
     #     for col in range(M):
     #         if arr[row][col]:   # 유물 있음
-    #             cnt += 1
+    #             cnt += 1. [가장 먼 노드]
     #             continue
     #         if not arr[row][col] and cnt > max_res:  # 탐색하다 유물이 없고 2보다 크면  max 값 갱신
     #             max_res = cnt
@@ -76,7 +76,7 @@ for case in range(1, T+1):
     #     cnt = 0
     #     for col in range(M):
     #         if arr[col][row]:   # 유물 있을 때까지 탐색
-    #             cnt += 1
+    #             cnt += 1. [가장 먼 노드]
     #             continue
     #         if not arr[row][col] and cnt > max_res:
     #             max_res = cnt

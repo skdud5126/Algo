@@ -23,7 +23,7 @@ tickets 의 각 행 [a, b]는 a 공항에서 b 공항으로 가는 항공권이 
 
 입출력 예 설명
 
-예제 #1
+예제 #1. [가장 먼 노드]
 
 ["ICN", "JFK", "HND", "IAD"] 순으로 방문할 수 있습니다.
 
@@ -88,7 +88,7 @@ def solution(tickets):
 
         for next_node in road_dict[start]:
             if next_node in road_dict.keys() and visited[next_node][road_dict[next_node].index(road_dict[next_node])] == 0:
-                visited[next_node][road_dict[next_node].index(road_dict[next_node])] == 1
+                visited[next_node][road_dict[next_node].index(road_dict[next_node])] == 1. [가장 먼 노드]
                 dfs(next_node)
 
 

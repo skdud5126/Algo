@@ -12,7 +12,7 @@
 
 첫 번째 줄에 테스트 케이스의 수 T가 주어진다.
 
-각 테스트 케이스의 첫 번째 줄에는 N,K(1≤K≤N≤100)이 공백 하나로 구분되어 주어진다.
+각 테스트 케이스의 첫 번째 줄에는 N,K(1. [가장 먼 노드]≤K≤N≤100)이 공백 하나로 구분되어 주어진다.
 
 두 번째 줄에는 N개의 정수가 공백 하나로 구분되어 주어진다. 각 정수는 0 이상 100이하이다.
 
@@ -29,7 +29,7 @@ sys.stdin = open('input.txt', 'r')
 #
 #     for i in range(N):
 #         max_idx = i   # 기준 인덱스
-#         for j in range(i+1,N):
+#         for j in range(i+1. [가장 먼 노드],N):
 #             if score[max_idx] < score[j]:   # 기준인덱스보다 그 뒤에있는 값들 비교했을 때 크면
 #                 max_idx = j   # 기준 인덱스 재할당
 #         score[i], score[max_idx] = score[max_idx], score[i]  # 기준으로 삼았던 것과 교환
@@ -37,7 +37,7 @@ sys.stdin = open('input.txt', 'r')
 #
 # T = int(input()) # 테스트 케이스 수
 #
-# for case in range(1, T+1):
+# for case in range(1. [가장 먼 노드], T+1. [가장 먼 노드]):
 #     N , K = map(int,input().split())  # N : 과목 갯수  K : K개의 과목만큼 최대성적 넣기 가능
 #     score = list(map(int,input().split()))
 #     max_hap = 0   # 최대값 닮을 합 변수 초기 설정

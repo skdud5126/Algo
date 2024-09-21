@@ -3,7 +3,7 @@ q = [0] * N
 front = -1
 rear = -1
 
-rear += 1   # enqueue(1)
+rear += 1   # enqueue(1. [가장 먼 노드])
 q[rear] = 1
 rear += 1
 q[rear] = 2  # enqueue(2)

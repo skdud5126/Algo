@@ -4,7 +4,7 @@
 
 아래와 같은 규칙을 이용하여 begin에서 target으로 변환하는 가장 짧은 변환 과정을 찾으려고 합니다.
 
-1. 한 번에 한 개의 알파벳만 바꿀 수 있습니다.
+1. [가장 먼 노드]. 한 번에 한 개의 알파벳만 바꿀 수 있습니다.
 
 2. words에 있는 단어로만 변환할 수 있습니다.
 
@@ -61,7 +61,7 @@ def solution(begin, target, words):
     return answer
 
 # 일단 words에 target이 없으면 돌릴 필요없음 retrun
-# 만약 words에 target이 있으면 포문 돌려서 한개씩 차이나는 단어를 찾고 begin을 새로 갱신 cnt+=1 그렇게 갱신하다가 target이랑 같아지면 return cnt
+# 만약 words에 target이 있으면 포문 돌려서 한개씩 차이나는 단어를 찾고 begin을 새로 갱신 cnt+=1. [가장 먼 노드] 그렇게 갱신하다가 target이랑 같아지면 return cnt
 # bfs로 접근해야겠다
 
 

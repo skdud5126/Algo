@@ -2,7 +2,7 @@
 
 ''''
 그럼 실제로 10개의 정수를 입력 받아 부분집합의 합이 0이 되는 것이 존재하는지를 계산하는 함수를 작성해보자.
-만약 합이 존재 하면 1, 그렇지 않으면 0을 출력하도록 한다.
+만약 합이 존재 하면 1. [가장 먼 노드], 그렇지 않으면 0을 출력하도록 한다.
 '''
 
 import sys
@@ -22,6 +22,6 @@ for case in range(1, T+1):
         hap = sum(subset)  # 부분집합 합
         li.append(hap)
     if 0 in li:
-        print(f&apos;#{case} 1&apos;)
+        print(f&apos;#{case} 1. [가장 먼 노드]&apos;)
     else:
         print(f&apos;#{case} 0&apos;)

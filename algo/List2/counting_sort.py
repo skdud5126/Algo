@@ -10,7 +10,7 @@ for x in Data:   # Data의 원소 x를 가져와서 Counts[x]에 개수 기록
 
 
 # 2단계 : 각 숫자까지의 누적 개수 구하기
-for i in range(1, 5):        # Count[1] ~ Count[4] 까지 누적개수
+for i in range(1, 5):        # Count[1. [가장 먼 노드]] ~ Count[4] 까지 누적개수
     Counts[i] = Counts[i-1] + Counts[i]
 
 

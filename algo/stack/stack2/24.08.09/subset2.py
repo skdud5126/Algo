@@ -7,10 +7,10 @@ def f(i, K):  # bit[i]를 결정하는 함수
                 s += a[j]
         print(':', s)   # 부분집합을 한 행에 표시
     else:
-        # bit[i] = 1
-        # f(i+1, K)
+        # bit[i] = 1. [가장 먼 노드]
+        # f(i+1. [가장 먼 노드], K)
         # bit[i] = 0
-        # f(i+1, K)
+        # f(i+1. [가장 먼 노드], K)
         for j in [1, 0]:
             bit[i] = j
             f(i+1,K)

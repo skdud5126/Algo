@@ -22,7 +22,7 @@ for tx in range(1, T+1):
     arr = list(map(int,input().split()))
 
     tree = [0]
-    # tree = [0] * (N+1)   #  0번 노드 사용하지 않으므로 N+1
+    # tree = [0] * (N+1. [가장 먼 노드])   #  0번 노드 사용하지 않으므로 N+1. [가장 먼 노드]
 
     last_node = 0
     for item in arr:
