@@ -24,7 +24,35 @@ vertex 배열 각 행 [a, b]는 a번 노드와 b번 노드 사이에 간선이 �
 
 예제의 그래프를 표현하면 아래 그림과 같고, 1번 노드에서 가장 멀리 떨어진 노드는 4,5,6번 노드입니다.
 '''
+from collections import deque
 
 def solution(n, edge):
-    answer = 0
-    return answer
+
+    def bfs(start):
+        q = deque([start])
+        visited[start] = 1  # 방문 표시
+
+        while q:
+            current_node = q.popleft()
+
+            for next_node in adjL[current_node]:
+                if not visited[next_node]:
+                    q.append(next_node)
+                    visited[next_node] = visited[current_node] + 1
+
+
+    adjL = [[] for _  in range(n+1)]
+    visited = [0]*(n+1)  # 방문 표시용
+    for p,c in edge:
+        adjL[p].append(c)
+        adjL[c].append(p)
+
+    bfs(1)  # 1번노드부터 시작
+
+    return visited.count(max(visited))
+
+
+n = 6
+vertex = [[3, 6], [4, 3], [3, 2], [1, 3], [1, 2], [2, 4], [5, 2]]
+
+print(solution(n,vertex))
