@@ -24,32 +24,33 @@ vertex 배열 각 행 [a, b]는 a번 노드와 b번 노드 사이에 간선이 �
 
 예제의 그래프를 표현하면 아래 그림과 같고, 1번 노드에서 가장 멀리 떨어진 노드는 4,5,6번 노드입니다.
 '''
-from collections import deque
+from collections import deque    # 시간 복잡도 고려 위해 덱 사용
 
 def solution(n, edge):
 
-    def bfs(start):
+    def bfs(start):  # bfs 사용
         q = deque([start])
         visited[start] = 1  # 방문 표시
 
-        while q:
+        while q:  # q가 빌때까지
             current_node = q.popleft()
 
             for next_node in adjL[current_node]:
-                if not visited[next_node]:
+                if not visited[next_node]:  # 방문하지 않았다면
                     q.append(next_node)
-                    visited[next_node] = visited[current_node] + 1
+                    visited[next_node] = visited[current_node] + 1  # 이동 거리 누적
 
 
-    adjL = [[] for _  in range(n+1)]
-    visited = [0]*(n+1)  # 방문 표시용
-    for p,c in edge:
+    adjL = [[] for _  in range(n+1)]  # 예시 : [[], [3, 2], [3, 1, 4, 5], [6, 4, 2, 1], [3, 2], [2], [3]]
+    visited = [0]*(n+1)  # 노드 방문 했는지 확인용 visited 생성
+    for p,c in edge:   # 양방향 인것을 고려하여 연결리스트 생성
         adjL[p].append(c)
         adjL[c].append(p)
 
-    bfs(1)  # 1번노드부터 시작
+    bfs(1)  # 1번노드부터 시작하기에
 
-    return visited.count(max(visited))
+    return visited.count(max(visited))   # 방문했을때 visited에 담긴 숫자가 가장 큰게 1번노드로부터 그만큼 떨어져있다는 뜻 그걸 count 진행
+
 
 
 n = 6
