@@ -148,7 +148,6 @@ for i in range(N):
     split_score = list(team_score[i + 1])
 
 
-
     # 순열 구하기
     nPr = list(permutations(split_score, 3))
     min_diff = 1000
